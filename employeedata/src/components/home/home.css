@@ -1,0 +1,25 @@
+.navbar-light .navbar-nav .nav-link {
+    color: rgb(97, 83, 159);
+    margin-top: 15px;
+    width: 120px;
+ 
+  }
+ 
+ 
+  .cs{
+    margin-top: 10px;
+    display: flex;
+  }
+  .container{
+    height: 50px;
+  }
+  .cs1{
+    margin-top:5px;
+    text-align: left;
+    margin-right: 450px;
+    margin-left:20px;
+  }
+  #heading1{
+      margin-top: 200px;
+      margin-left: 600px;
+  }
