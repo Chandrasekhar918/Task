@@ -1,13 +1,13 @@
-import React from 'react';
+// import React from 'react';
 
 
-export default function MainDb (){
-  return (
-    <div className="container">
-    <h1 >
-         <a href="/findall">Findall</a>
+// export default function MainDb (){
+//   return (
+//     <div className="container">
+//     <h1 >
+//          <a href="/findall">Findall</a>
          
-    </h1>
-    </div>
-  )
-}
+//     </h1>
+//     </div>
+//   )
+// }

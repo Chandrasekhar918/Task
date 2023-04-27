@@ -1,0 +1,9 @@
+.about {
+    font-family: "rubik" sans-serif;
+    min-height: 87vh;
+    width: 100vw;
+    padding: 100px 50px 50px 50px;
+    background-image: url("http://thewowstyle.com/wp-content/uploads/2015/01/beautiful-cities..jpg");
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: 18px;
+  }

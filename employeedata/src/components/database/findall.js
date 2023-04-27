@@ -1,21 +1,37 @@
 import axios from "axios";
 import React, {useEffect, useState} from "react";
+import Pagination from "./pagination";
 
 import "./db.css";
 import { Link, useParams } from "react-router-dom";
 function FindAll(){
 
-  const [db, setDb] = useState([]);
 
+const [currentPage, setCurrentPage] = useState(1);
+const [employeesPerPage] = useState(4);
+ const indexOfLastEmployee = currentPage * employeesPerPage;
+ const indexOfFirstEmployee = indexOfLastEmployee - employeesPerPage;
+
+
+
+
+
+  const [db, setDb] = useState([]);
+  const [loading, setloading] = useState(false);
+  const currentEmployees = db.slice(indexOfFirstEmployee, indexOfLastEmployee);
   const{emp_id}=useParams()
 
   useEffect(()=>{
       loadDb();
   }, []);
-
+  
+  const paginate = pageNumber => setCurrentPage(pageNumber);
   const loadDb=async()=>{
+    
       const result=await axios.get("http://localhost:8080/findall");
       setDb(result.data);
+      setloading(false);
+      
   }
 
   const deleteUser=async (emp_id)=>{
@@ -53,7 +69,7 @@ function FindAll(){
             </tr>
           </thead>
           <tbody>
-            {db.map((db, index) => (
+            {currentEmployees.map((db, index) => (
                
                <tr>
                <th scope="row"key={index}>{index+1}</th>
@@ -75,8 +91,27 @@ function FindAll(){
           </tbody>
         </table>
       </div>
-    
+    <Pagination employeesPerPage={employeesPerPage}
+    totalPosts={db.length}
+    paginate={paginate}
+    /> 
   </div>
+  {/* {currentEmployees.map(employee => (
+  <div key={employee.emp_id}>
+    <span>{employee.emp_name}</span>
+    <span>{employee.address}</span>
+  </div>
+))}
+
+  <Pagination
+  currentPage={currentPage}
+  totalPages={Math.ceil(db.length / employeesPerPage)}
+  onPageChange={setCurrentPage}
+/> */}
+
+
+
+
   </div>
 
     );
